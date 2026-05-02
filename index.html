@@ -470,7 +470,29 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-  /* ── LOGIN ── */
+  /* ── CLOUD SYNC PANEL ── */
+  .sync-dot {
+    width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; display: inline-block;
+    transition: background 0.3s;
+  }
+  .sync-dot.ok      { background: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.2); }
+  .sync-dot.error   { background: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.2); }
+  .sync-dot.syncing { background: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,0.2); animation: pulse 1s infinite; }
+  .sync-dot.off     { background: #d1d5db; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .cloud-steps { display:flex; flex-direction:column; gap:16px; margin-bottom:24px; }
+  .cloud-step  { display:flex; gap:14px; align-items:flex-start; }
+  .step-num {
+    width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--c1), var(--c3));
+    color: #fff; font-size: 0.72rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cloud-step strong { font-size: 0.82rem; display: block; margin-bottom: 4px; }
+  .cloud-step p { font-size: 0.74rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+  /* ── END CLOUD SYNC PANEL ── */
   #login-screen {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     background: linear-gradient(135deg, #080808 0%, #180826 50%, #081828 100%);
@@ -765,9 +787,9 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="www.linkedin.com/in/sachin-ghunawat-62673b170" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a></li>
+    <li><a href="https://linkedin.com/in/sachin-ghunawat" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a></li>
   </ul>
-  <a class="nav-cta" href="mailto:sachinmeena550@gmail.com">Hire Me</a>
+  <a class="nav-cta" href="mailto:sachin@example.com">Hire Me</a>
 </nav>
 
 <!-- HERO -->
@@ -782,7 +804,7 @@
       <p class="hero-role">Python Developer &nbsp;·&nbsp; IoT &nbsp;·&nbsp; Cloud &nbsp;·&nbsp; Microservices</p>
       <p class="hero-desc">Crafting scalable microservices, IoT pipelines, and cloud-native apps with Python, Docker, Azure, and MongoDB. Building systems that work at scale.</p>
       <div class="hero-actions">
-        <a class="btn-main" href="mailto:sachinmeena550@gmail.com">Get In Touch &#8594;</a>
+        <a class="btn-main" href="mailto:sachin@example.com">Get In Touch &#8594;</a>
         <a class="btn-outline" href="#experience">See My Work</a>
       </div>
       <div class="hero-stats">
@@ -1048,10 +1070,10 @@
     <h2>Ready to <span class="grad">Build Together?</span></h2>
     <p class="sub">Open to Python, IoT, cloud infrastructure, or backend engineering roles. Let&rsquo;s build something remarkable.</p>
         <div class="cbtns">
-      <a class="cbtn cbtn-email" href="mailto:sachinmeena550@gmail.com">
-        &#128231; sachinmeena550@gmail.com
+      <a class="cbtn cbtn-email" href="mailto:sachin@example.com">
+        &#128231; sachin@example.com
       </a>
-      <a class="cbtn cbtn-linkedin" href="www.linkedin.com/in/sachin-ghunawat-62673b170" target="_blank" rel="noopener">
+      <a class="cbtn cbtn-linkedin" href="https://linkedin.com/in/sachin-ghunawat" target="_blank" rel="noopener">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </a>
@@ -1101,7 +1123,13 @@
       <div class="dash-logo">SG.dev Admin</div>
       <div class="dash-title">Portfolio Content Manager</div>
     </div>
-    <button class="logout-btn" onclick="closeAdmin()" style="background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border-color:#fca5a5;color:#ef4444;">✕ Close Admin</button>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div id="header-sync-status" style="display:flex;align-items:center;gap:7px;font-size:0.7rem;color:var(--muted);cursor:pointer;" onclick="showPanel('cloud');initCloudPanel();" title="Cloud Sync Status">
+        <span id="cloud-status-dot" class="sync-dot off"></span>
+        <span id="cloud-status-txt">○ Not configured</span>
+      </div>
+      <button class="logout-btn" onclick="closeAdmin()" style="background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.05));border-color:#fca5a5;color:#ef4444;">✕ Close Admin</button>
+    </div>
   </div>
 
   <div class="dash-body">
@@ -1135,6 +1163,9 @@
         </button>
         <button class="sidebar-btn" onclick="showPanel('export')" id="sb-export">
           <span class="icon">📤</span> Export
+        </button>
+        <button class="sidebar-btn" onclick="showPanel('cloud'); initCloudPanel();" id="sb-cloud">
+          <span class="icon">☁️</span> Cloud Sync
         </button>
       </div>
     </div>
@@ -1296,9 +1327,9 @@
           <label>Sub-description</label>
           <textarea id="contact-sub">Open to Python, IoT, cloud infrastructure, or backend engineering roles. Let's build something remarkable.</textarea>
           <label>Email Address</label>
-          <input type="email" id="contact-email" value="sachinmeena550@gmail.com">
+          <input type="email" id="contact-email" value="sachin@example.com">
           <label>LinkedIn URL</label>
-          <input type="text" id="contact-linkedin" value="www.linkedin.com/in/sachin-ghunawat-62673b170" placeholder="https://linkedin.com/in/your-profile">
+          <input type="text" id="contact-linkedin" value="https://linkedin.com/in/sachin-ghunawat" placeholder="https://linkedin.com/in/your-profile">
           <label>Location</label>
           <input type="text" id="contact-loc" value="Delhi, India">
         </div>
@@ -1384,6 +1415,75 @@
         </div>
       </div>
 
+      <!-- ── CLOUD SYNC PANEL ── -->
+      <div class="panel" id="panel-cloud">
+        <div class="panel-header">
+          <h2>☁️ Cloud Sync</h2>
+          <p>Connect to JSONBin.io so every save instantly reflects for all visitors — no GitHub push needed.</p>
+        </div>
+
+        <!-- Status Card -->
+        <div class="card" style="display:flex;align-items:center;gap:14px;padding:20px 24px;">
+          <span id="cloud-status-dot" class="sync-dot off"></span>
+          <span id="cloud-status-txt" style="font-size:0.78rem;color:var(--muted);">○ Not configured</span>
+        </div>
+
+        <!-- Connected State -->
+        <div id="cloud-connected-box" style="display:none;">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">✅ Cloud Sync Active</div>
+              <span class="card-badge">JSONBin.io</span>
+            </div>
+            <p style="font-size:0.78rem;color:var(--muted);margin-bottom:14px;">Every time you save a section, changes are instantly pushed to the cloud and visible to <strong>all visitors</strong> within seconds.</p>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.72rem;">
+              <span style="color:var(--muted);">Bin ID: </span>
+              <code id="cloud-connected-binid" style="color:var(--c3);font-family:monospace;"></code>
+            </div>
+            <button class="btn btn-ghost" onclick="disconnectCloud()" style="border-color:#fca5a5;color:#ef4444;">🔌 Disconnect</button>
+          </div>
+        </div>
+
+        <!-- Setup State -->
+        <div id="cloud-setup-box">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">One-Time Setup (2 minutes)</div>
+              <span class="card-badge">Free · No server needed</span>
+            </div>
+            <div class="cloud-steps">
+              <div class="cloud-step">
+                <div class="step-num">1</div>
+                <div>
+                  <strong>Create a free JSONBin account</strong>
+                  <p>Go to <a href="https://jsonbin.io" target="_blank" style="color:var(--c3);">jsonbin.io</a> → Sign up free → Dashboard → Master Keys → copy your <strong>Secret Key</strong>.</p>
+                </div>
+              </div>
+              <div class="cloud-step">
+                <div class="step-num">2</div>
+                <div>
+                  <strong>Create a Bin</strong>
+                  <p>Click <strong>Create Bin</strong> → paste <code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:0.7rem;">{}</code> as content → set it to <strong>Public</strong> → Save → copy the <strong>Bin ID</strong> from the URL.</p>
+                </div>
+              </div>
+              <div class="cloud-step">
+                <div class="step-num">3</div>
+                <div>
+                  <strong>Paste both below and click Connect</strong>
+                  <p>That's it — all future saves will automatically sync to all visitors instantly.</p>
+                </div>
+              </div>
+            </div>
+
+            <label style="margin-top:8px;">JSONBin Bin ID</label>
+            <input type="text" id="cloud-bin-id" placeholder="e.g. 64f2c3a8e64a6d4e2b3d1a00" style="font-family:monospace;">
+            <label>Secret Key (Master API Key) <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);">— stored only in your browser, never in the HTML</span></label>
+            <input type="password" id="cloud-api-key" placeholder="$2b$10$…">
+            <button class="btn btn-primary" onclick="connectCloud()" style="margin-top:4px;">🔌 Connect & Sync Now</button>
+          </div>
+        </div>
+      </div>
+
     </div><!-- /dash-main -->
   </div><!-- /dash-body -->
 </div>
@@ -1403,6 +1503,11 @@
 // ═══════════════════════════════════════════════════
 //  UNIFIED CLEAN SCRIPT — no duplicates, no errors
 // ═══════════════════════════════════════════════════
+
+// ── CLOUD SYNC CONFIG ──
+// Set CLOUD_BIN_ID once (from admin Cloud Sync panel) so ALL visitors fetch live data.
+// The API key is stored only in your browser's localStorage — never in this file.
+const CLOUD_BIN_ID = localStorage.getItem('sg_cloud_bin_id') || '';
 
 // ── NAV HIGHLIGHT ──
 window.addEventListener('scroll', () => {
@@ -1510,8 +1615,8 @@ let data = {
   contact: {
     h1: 'Ready to', h2: 'Build Together?',
     sub: "Open to Python, IoT, cloud infrastructure, or backend engineering roles. Let's build something remarkable.",
-    email: 'sachinmeena550@gmail.com', loc: 'Delhi, India',
-    linkedin: 'www.linkedin.com/in/sachin-ghunawat-62673b170',
+    email: 'sachin@example.com', loc: 'Delhi, India',
+    linkedin: 'https://linkedin.com/in/sachin-ghunawat',
     footerRole: 'Python Developer · Cloud · IoT · Delhi, IN'
   }
 };
@@ -1795,7 +1900,10 @@ function saveSection(section) {
   changes.push(`✅ ${section.charAt(0).toUpperCase()+section.slice(1)} saved at ${new Date().toLocaleTimeString()}`);
   localStorage.setItem('sg_portfolio_data', JSON.stringify(data));
   hideSaveBar();
-  showToast('✅ ' + section.charAt(0).toUpperCase() + section.slice(1) + ' saved!', 'success');
+  showToast('💾 Saving…', '');
+  saveToCloud().then(synced => {
+    if (!synced) showToast('✅ ' + section.charAt(0).toUpperCase() + section.slice(1) + ' saved locally.', 'success');
+  });
   renderPortfolio();
 }
 
@@ -1829,10 +1937,141 @@ function copyExport() {
 // ── UTILS ──
 function escH(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-// Load saved data from localStorage if available
-window.addEventListener('DOMContentLoaded', () => {
+// ── CLOUD SYNC ──
+function getCloudConfig() {
+  const binId  = localStorage.getItem('sg_cloud_bin_id')  || '';
+  const apiKey = localStorage.getItem('sg_cloud_api_key') || '';
+  return { binId, apiKey };
+}
+
+async function loadFromCloud() {
+  const { binId } = getCloudConfig();
+  if (!binId) return false;
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+      headers: { 'X-Bin-Meta': 'false' }
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    // JSONBin wraps data in { record: {...} } — unwrap it
+    const cloudData = json.record !== undefined ? json.record : json;
+    if (cloudData && cloudData.hero) {
+      data = cloudData;
+      localStorage.setItem('sg_portfolio_data', JSON.stringify(data));
+      renderPortfolio();
+      return true;
+    }
+  } catch(e) {
+    console.warn('[CloudSync] Load failed:', e);
+  }
+  return false;
+}
+
+async function saveToCloud(silent) {
+  const { binId, apiKey } = getCloudConfig();
+  if (!binId || !apiKey) return false;
+  try {
+    updateSyncStatus('syncing');
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'X-Master-Key': apiKey },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const now = new Date().toLocaleTimeString();
+    localStorage.setItem('sg_cloud_last_sync', now);
+    updateSyncStatus('ok', now);
+    if (!silent) showToast('☁️ Synced to cloud! All visitors will see the update.', 'success');
+    return true;
+  } catch(e) {
+    console.error('[CloudSync] Save failed:', e);
+    updateSyncStatus('error');
+    if (!silent) showToast('☁️ Cloud sync failed: ' + e.message, '');
+    return false;
+  }
+}
+
+function updateSyncStatus(state, time) {
+  const el = document.getElementById('cloud-status-dot');
+  const txt = document.getElementById('cloud-status-txt');
+  if (!el || !txt) return;
+  const map = {
+    ok:      { cls:'ok',      label: '● Live — last synced ' + (time||'') },
+    error:   { cls:'error',   label: '✕ Sync error' },
+    syncing: { cls:'syncing', label: '⟳ Syncing…' },
+    off:     { cls:'off',     label: '○ Not configured' },
+  };
+  const s = map[state] || map.off;
+  el.className = 'sync-dot ' + s.cls;
+  txt.textContent = s.label;
+}
+
+async function connectCloud() {
+  const binInput = document.getElementById('cloud-bin-id');
+  const keyInput = document.getElementById('cloud-api-key');
+  const binId  = binInput.value.trim();
+  const apiKey = keyInput.value.trim();
+
+  if (!binId || !apiKey) { showToast('Enter both Bin ID and API Key.', ''); return; }
+
+  // Test write
+  updateSyncStatus('syncing');
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'X-Master-Key': apiKey },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' — check your API key and Bin ID.');
+    localStorage.setItem('sg_cloud_bin_id',  binId);
+    localStorage.setItem('sg_cloud_api_key', apiKey);
+    const now = new Date().toLocaleTimeString();
+    localStorage.setItem('sg_cloud_last_sync', now);
+    updateSyncStatus('ok', now);
+    document.getElementById('cloud-setup-box').style.display = 'none';
+    document.getElementById('cloud-connected-box').style.display = 'block';
+    document.getElementById('cloud-connected-binid').textContent = binId;
+    showToast('☁️ Cloud sync connected! Every save is now live for all visitors.', 'success');
+  } catch(e) {
+    updateSyncStatus('error');
+    showToast('Connection failed: ' + e.message, '');
+  }
+}
+
+function disconnectCloud() {
+  if (!confirm('Disconnect cloud sync? Changes will only save locally until reconnected.')) return;
+  localStorage.removeItem('sg_cloud_bin_id');
+  localStorage.removeItem('sg_cloud_api_key');
+  localStorage.removeItem('sg_cloud_last_sync');
+  document.getElementById('cloud-setup-box').style.display = 'block';
+  document.getElementById('cloud-connected-box').style.display = 'none';
+  document.getElementById('cloud-bin-id').value = '';
+  document.getElementById('cloud-api-key').value = '';
+  updateSyncStatus('off');
+  showToast('Cloud sync disconnected.', '');
+}
+
+function initCloudPanel() {
+  const { binId, apiKey } = getCloudConfig();
+  const lastSync = localStorage.getItem('sg_cloud_last_sync') || '';
+  const connected = binId && apiKey;
+  document.getElementById('cloud-setup-box').style.display     = connected ? 'none'  : 'block';
+  document.getElementById('cloud-connected-box').style.display = connected ? 'block' : 'none';
+  if (connected) {
+    document.getElementById('cloud-connected-binid').textContent = binId;
+    updateSyncStatus('ok', lastSync);
+  } else {
+    updateSyncStatus('off');
+  }
+}
+
+// Load saved data from localStorage if available, then try cloud
+window.addEventListener('DOMContentLoaded', async () => {
+  // First apply localStorage so page isn't blank while cloud loads
   const saved = localStorage.getItem('sg_portfolio_data');
   if (saved) { try { data = JSON.parse(saved); renderPortfolio(); } catch(e) { console.warn('Failed to load saved data:', e); } }
+  // Then try to get fresher data from cloud
+  await loadFromCloud();
 });
 // ── PORTFOLIO LIVE RENDERER ──
 function renderPortfolio() {
